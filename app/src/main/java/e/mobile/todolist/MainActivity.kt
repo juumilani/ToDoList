@@ -26,8 +26,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(adicionarItem)
         }
 
-        }
-
-
     }
+
+
+}
 
