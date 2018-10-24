@@ -5,15 +5,26 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context=".cadastroToDoActivity">
 
-    <EditText
-        android:id="@+id/edtToDo"
-        style="@style/FormEditText"
-        android:hint="@string/add_something_to_do"/>
+    <EditText android:layout_width="wrap_content"
+              android:hint="@string/add_something_to_do"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:paddingLeft="70dp"
+              android:paddingRight="70dp"
+              android:layout_marginTop="30dp"
 
-    <Button
-        android:id="@+id/btnSave"
-        style="@style/FormSaveButton"/>
+    />
+
+    <Button android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:paddingLeft="70dp"
+            android:paddingRight="70dp"
+            android:layout_marginTop="30dp"
+            android:text="@string/save"
+            android:layout_height="wrap_content"
+            android:id="@+id/saveBtn"/>
 
 </LinearLayout>
