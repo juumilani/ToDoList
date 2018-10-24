@@ -8,12 +8,12 @@
         tools:context=".cadastroToDoActivity">
 
     <EditText
-        android:id="@+id/toDo"
+        android:id="@+id/edtToDo"
         style="@style/FormEditText"
         android:hint="@string/add_something_to_do"/>
 
     <Button
-        android:id="@+id/buttonSave"
+        android:id="@+id/btnSave"
         style="@style/FormSaveButton"/>
 
 </ScrollView>
