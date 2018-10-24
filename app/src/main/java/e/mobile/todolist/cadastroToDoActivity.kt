@@ -15,6 +15,11 @@ class cadastroToDoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastro_to_do)
 
+        val toDoString: String? = intent.getStringExtra(EXTRA_NOVO_TODO) as String?
+        if(toDoString != null){
+            edtToDo.setText(toDoString)
+        }
+
         btnSave.setOnClickListener() {
             salvaToDo()
         }
@@ -26,8 +31,11 @@ class cadastroToDoActivity : AppCompatActivity() {
             edtToDo.setError(getString(R.string.vazio))
             return
         }
+
+        val stringToDo = edtToDo.text.toString()
+
         val salvaToDo = Intent(this, MainActivity::class.java)
-        salvaToDo.putExtra(EXTRA_NOVO_TODO, edtToDo.text)
+        salvaToDo.putExtra(EXTRA_NOVO_TODO, stringToDo)
         setResult(Activity.RESULT_OK, salvaToDo)
         finish()
     }

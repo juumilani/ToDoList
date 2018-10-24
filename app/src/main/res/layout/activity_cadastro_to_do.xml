@@ -8,7 +8,9 @@
         android:orientation="vertical"
         tools:context=".cadastroToDoActivity">
 
-    <EditText android:layout_width="wrap_content"
+    <EditText
+            android:id="@+id/edtToDo"
+            android:layout_width="wrap_content"
               android:hint="@string/add_something_to_do"
               android:layout_height="wrap_content"
               android:layout_gravity="center"
@@ -25,6 +27,6 @@
             android:layout_marginTop="30dp"
             android:text="@string/save"
             android:layout_height="wrap_content"
-            android:id="@+id/saveBtn"/>
+            android:id="@+id/btnSave"/>
 
 </LinearLayout>
