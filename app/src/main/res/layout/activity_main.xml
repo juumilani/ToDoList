@@ -19,5 +19,6 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="16dp"
                 android:elevation="6dp"
-                app:fabSize="normal"/>
+                app:fabSize="normal"
+                android:src="@drawable/ic_add"/>
     </FrameLayout>

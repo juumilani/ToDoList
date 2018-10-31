@@ -7,4 +7,4 @@ import java.io.Serializable
 @Entity
 data class ToDoObject (var text: String,
                        @PrimaryKey(autoGenerate = true)
-                 var ToDoID: Int = 0): Serializable
+                       var ToDoID: Int = 0): Serializable
