@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.support.v7.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.activityUiThreadWithContext
@@ -13,7 +14,7 @@ import org.jetbrains.anko.uiThread
 class ListaToDoActivity : AppCompatActivity() {
 
     companion object{
-        private const val REQUEST_CADASTRO: Int = 1
+        private const val LISTA = "listaItens"
     }
     var listaItens: MutableList<ToDoObject> = mutableListOf()
     var indexToDo: Int = -1
@@ -31,6 +32,18 @@ class ListaToDoActivity : AppCompatActivity() {
     override fun onResume(){
         super.onResume()
         carregaLista()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?, outPersistentState: PersistableBundle?) {
+        super.onSaveInstanceState(outState, outPersistentState)
+        outState?.putSerializable(LISTA, listaItens as ArrayList<ToDoObject>)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+        if(savedInstanceState != null){
+            listaItens = savedInstanceState.getSerializable(LISTA) as MutableList<ToDoObject>
+        }
     }
 
     fun carregaLista() {
@@ -55,22 +68,6 @@ class ListaToDoActivity : AppCompatActivity() {
                 rvItens.layoutManager = layoutManager
             }
         }
-
-
     }
-
-/*    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if(requestCode == REQUEST_CADASTRO && resultCode == Activity.RESULT_OK){
-            val toDo: String? = data?.getStringExtra(cadastroToDoActivity.EXTRA_NOVO_TODO)
-            if(toDo != null){
-                if(indexToDo >= 0){
-                listaItens.set(indexToDo, toDo)
-                indexToDo = -1
-            }else {
-                    listaItens.add(toDo)
-                }
-            }
-        }
-    }*/
 }
 
