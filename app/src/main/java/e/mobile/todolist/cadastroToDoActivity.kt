@@ -39,6 +39,4 @@ class cadastroToDoActivity : AppCompatActivity() {
         setResult(Activity.RESULT_OK, salvaToDo)
         finish()
     }
-
-
 }
