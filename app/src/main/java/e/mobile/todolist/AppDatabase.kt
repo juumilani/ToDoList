@@ -5,7 +5,7 @@ import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.content.Context
 
-@Database(entities = arrayOf(ToDo::class), version = 1)
+@Database(entities = arrayOf(ToDoObject::class), version = 1)
 public abstract class AppDatabase: RoomDatabase() {
 
     companion object {

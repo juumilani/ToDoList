@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import android.view.LayoutInflater
 import kotlinx.android.synthetic.main.item_lista.view.*
 
-class ToDoAdapter (val context:Context, val itens: List<String>)
+class ToDoAdapter (val context:Context, val itens: List<ToDoObject>)
     : RecyclerView.Adapter<ToDoAdapter.ViewHolder>() {
 
-    var clickListener: ((toDo: String, index: Int) -> Unit)? = null
+    var clickListener: ((index: Int) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_lista, parent, false)
@@ -25,21 +25,20 @@ class ToDoAdapter (val context:Context, val itens: List<String>)
         holder.bindView(context, itens[position], clickListener)
     }
 
-    fun setOnItemClickListener(clickListener: ((toDo: String, index: Int) -> Unit)){
+    fun setOnItemClickListener(clickListener: ((index: Int) -> Unit)){
         this.clickListener = clickListener
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bindView(context: Context, itemNome: String, clickListener: ((toDo: String, index: Int) -> Unit)?) {
-            itemView.tvNome.text = itemNome
+        fun bindView(context: Context, todo: ToDoObject, clickListener: ((index: Int) -> Unit)?) {
+            itemView.tvNome.text = todo.text
 
             if(clickListener != null){
                 itemView.setOnClickListener{
-                    clickListener.invoke(itemNome, adapterPosition)
+                    clickListener.invoke(adapterPosition)
                 }
             }
         }
-
     }
 }
