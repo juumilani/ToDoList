@@ -62,6 +62,15 @@ class ListaToDoActivity : AppCompatActivity() {
                     startActivity(editaToDo)
                 }
 
+                adapter.setOnClickEditListener {indexToDo ->
+                    doAsync {
+                        ToDoDao.delete(listaItens.get(indexToDo))
+                        uiThread{
+                            carregaLista()
+                        }
+                    }
+                }
+
                 val layoutManager = LinearLayoutManager(this)
 
                 rvItens.adapter = adapter
